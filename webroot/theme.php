@@ -59,6 +59,56 @@ $app->router->add('regioner', function() use ($app) {
 });
 
 
+// Route for typography
+$app->router->add('typografi', function() use ($app) {
+
+    $app->theme->setTitle("Typografi");
+    
+    $content = $app->fileContent->get('typography.html');
+    
+    $app->views->add('default/article', [
+        'content' => $content, 
+    ]);
+    
+    $app->views->add('default/article', [
+        'content' => $content,
+    ], 'sidebar');
+
+});
+
+
+// Route for Font Awesome
+$app->router->add('fontawesome', function() use ($app) {
+    
+    $app->theme->setTitle("Font Awesome");
+    
+    $contentMain = $app->fileContent->get('fa-main.html');
+    $contentSidebar = $app->fileContent->get('fa-sidebar.html');
+    $contentFooterCol = $app->fileContent->get('fa-footer-col.md');
+    
+    $app->views->add('default/article', [
+        'content' => $contentMain,
+    ]);
+    
+    $app->views->add('default/article', [
+        'content' => $contentSidebar,
+    ], 'sidebar');
+    
+    $app->views->add('default/article', [
+                        'content' => $contentFooterCol,
+                    ], 'footer-col-1')
+               ->add('default/article', [
+                        'content' => $contentFooterCol,
+                    ], 'footer-col-2')
+               ->add('default/article', [
+                        'content' => $contentFooterCol,
+                    ], 'footer-col-3')
+               ->add('default/article', [
+                        'content' => $contentFooterCol,
+                    ], 'footer-col-4'); 
+});
+
+
 
 // Check for matching routes and dispatch to controller/handler of route
 $app->router->handle();

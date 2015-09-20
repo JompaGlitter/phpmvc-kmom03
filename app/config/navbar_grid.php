@@ -25,6 +25,20 @@ return [
             'title' => 'Regioner'
         ],
         
+        // This is a menu item
+        'typography' => [
+            'text'  => 'Typografi',
+            'url'   => $this->di->get('url')->create('theme.php/typografi'),
+            'title' => 'Typografi'
+        ],
+        
+        // This is a menu item
+        'fontawesome' => [
+            'text'  => 'Font Awesome',
+            'url'   => $this->di->get('url')->create('theme.php/fontawesome'),
+            'title' => 'Font Awesome'
+        ],
+        
     ],
  
 
